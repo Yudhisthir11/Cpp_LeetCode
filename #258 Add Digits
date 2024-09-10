@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int addDigits(int num) {
+        int rem = 0;
+        int sum = 0;
+
+        if(num>=0 && num <= 9){
+            return num; // base case
+        }
+        
+        while(num!=0){
+            rem = num %10;
+            sum = sum + rem; //ones digit gets added
+            num = num/10;
+
+        }
+        return addDigits(sum); //recursive call
+    }
+};
