@@ -1,0 +1,19 @@
+//this is bruteforce approach by count variable
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int zeroSize = 0; //this serves as count
+        for (int i=0;i<nums.size();i++){
+	        if (nums[i]==0){//if found the zero . count increases
+                zeroSize++; 
+            }
+
+            else if (zeroSize > 0) { // if count is higher than 0 and nums[i]!=0
+	            int t = nums[i]; // t is the non zero element
+	            nums[i] = 0; 
+	            nums[i-zeroSize] = t; // this changes the positions of all the zeroes collectively by adding the following element in front
+            }
+        }
+        
+    }
+};
